@@ -3,9 +3,10 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('todos', [{
+      id: 1,
       Nome: 'Cozinhar',
-      Data: '2022-05-05',
-      Hora: '20:00:00',
+      Data: new Date('2022-05-05'),
+      Hora: new Date(),
       Titulo: 'Cozinhar',
     }], {});
   },
