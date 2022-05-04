@@ -7,6 +7,17 @@ const createTask = async (data) => {
     headers: { 'Content-Type': contentType },
     body: JSON.stringify({ ...data }),
   };
-  const response = await fetch(`${url}/agenda`, options)
+  const response = await fetch(`${url}/agenda`, options);
   return response
 };
+
+const readTasks = async () => {
+  const options = {
+    method: 'GET',
+    headers: { 'Content-Type': contentType },    
+  }
+  const response = await fetch(`${url}/agenda`, options);
+  return response;
+};
+
+const readTask = async (id) => {
