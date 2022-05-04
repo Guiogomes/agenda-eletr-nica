@@ -24,3 +24,11 @@ const deleteTodo = async (req, res) => {
   const todo = await todosService.deleteTodo(req.params.id);
   return res.status(200).json(todo);
 }
+
+module.exports = {
+  create,
+  read,
+  readOne,
+  update,
+  deleteTodo,
+}
