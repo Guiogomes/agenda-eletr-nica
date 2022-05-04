@@ -19,5 +19,3 @@ const readTasks = async () => {
   const response = await fetch(`${url}/agenda`, options);
   return response;
 };
-
-const readTask = async (id) => {
