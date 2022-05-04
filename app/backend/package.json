@@ -1,12 +1,30 @@
 {
-  "name": "backend",
+  "name": "agenda-eletronica-back-end",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Back-end para a agenda eletronica",
+  "main": "./src/api/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "dev": "nodemon .",
+    "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
-  "keywords": [],
-  "author": "",
+  "dependencies": {
+    "body-parser": "1.19.2",
+    "cors": "2.8.5",
+    "dotenv": "16.0.0",
+    "express": "4.17.3",
+    "express-rescue": "1.1.31",
+    "jsonwebtoken": "8.5.1",
+    "mysql2": "2.3.3",
+    "sequelize": "6.17.0",
+    "socket.io": "4.4.1"
+  },
+  "devDependencies": {
+    "eslint-config-trybe-backend": "1.0.4",
+    "nodemon": "2.0.15",
+    "nyc": "15.1.0",
+    "sequelize-cli": "6.4.1"
+  },
+  "author": "Guilherme Gomes da Silva",
   "license": "ISC"
 }
