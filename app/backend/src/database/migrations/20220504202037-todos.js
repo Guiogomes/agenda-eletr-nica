@@ -7,24 +7,21 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        type: Sequelize.INTEGER,
       },
       Nome: {
         allowNull: false,
         type: Sequelize.STRING,
-
       },
       Data: {
         allowNull: false,
-        default: Sequelize.NOW,
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
       },
       Hora: {
-        allowNull: false,
-        type: Sequelize.TIME,
-        default: Sequelize.literal('CURRENT_TIME'),
+        defaultValue: Sequelize.fn('NOW'),
+        type: Sequelize.DATE,
       },
       Titulo: {
-        allowNull: false,
         type: Sequelize.STRING({ length: 100 }),
       }
     });
