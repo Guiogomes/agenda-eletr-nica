@@ -16,8 +16,7 @@ module.exports = (sequelize, DataTypes) =>{
   }, {
     tableName: 'todos',
     timestamps: false,
-    timezone: 'Z',
-  })
+    })
 
   return Todos;
 }
