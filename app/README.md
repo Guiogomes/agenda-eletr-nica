@@ -8,13 +8,13 @@ de dados relacional.
 
 ## Requisitos
 
-[] - Acessar tela com relação de compromissos contendo os campos: Nome, Data, Hora e Título da atividade;
+[ ] - Acessar tela com relação de compromissos contendo os campos: Nome, Data, Hora e Título da atividade;
 
-[] - Acessar tela de cadastro que permita inclusão de uma tarefa;
+[ ] - Acessar tela de cadastro que permita inclusão de uma tarefa;
 
-[] - Acessar tela que permita edição dos dados relacionados a tarefa;
+[ ] - Acessar tela que permita edição dos dados relacionados a tarefa;
 
-[] - Criar tela de exclusão da tarefa;
+[ ] - Criar tela de exclusão da tarefa;
 
 ## Iniciando o projeto
 
