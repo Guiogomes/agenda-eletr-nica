@@ -26,3 +26,10 @@ e o back-end através do comando *npm run dev*
 - Para criar e popular o banco utilize o comando *npm run db:reset*
 
 - Para acessar a aplicação no Heroku utilize o link: XXXXX
+
+## Rodar os testes
+
+### Back-end
+
+- no back-end foi desenvolvido os testes de integração,\
+sendo possível rodar e ver a cobertura através do comando *npm run test:coverage*
