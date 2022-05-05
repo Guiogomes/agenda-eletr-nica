@@ -9,6 +9,9 @@ chai.use(chaiHttp);
 
 describe('Testando a aplicação', () => {
   let response;
+  afterEach(() => {
+    sinon.restore();
+  })
   describe('Testando a criação de uma tarefa', () => {
     before(async () => {
       response = await chai.request(app)
@@ -71,6 +74,14 @@ describe('Testando a aplicação', () => {
   describe('Testando a leitura de uma tarefa', () => {
     describe('Caso de sucesso', () => {
       before(async () => {
+        await chai.request(app)
+          .post('/agenda')
+          .send({
+            id: 1,
+            Nome: 'comer',
+            Data: '2020-01-01 18:00',
+            Titulo: 'comer no restaurante',
+          })
         response = await chai.request(app)
           .get('/agenda/1')        
         sinon
@@ -98,12 +109,71 @@ describe('Testando a aplicação', () => {
           .get('/agenda/100000')        
         sinon
           .stub(todosController, 'readOne')
-          .resolves();
+          .rejects();
       });
   
       after(() => {
         sinon.restore();
       });
+
+      it('Deve retornar um erro', async () => {
+        expect(response).to.have.status(404);  
+        expect(response.body).to.be.an('object');
+        expect(response.body).to.have.property('error');
+      })
     });
   })
+  describe('Testando a edição de uma tarefa', () => {
+    describe('Caso de sucesso', () => {
+      before(async () => {
+        await chai.request(app)
+          .post('/agenda')
+          .send({
+            id: 1,
+            Nome: 'comer',
+            Data: '2020-01-01 18:00',
+            Titulo: 'comer no restaurante',
+          })
+        response = await chai.request(app)
+          .put('/agenda/1')        
+        sinon
+          .stub(todosController, 'update')
+          .resolves({
+            id: 1,
+            Nome: 'dormir',
+            Data: '2020-01-01 18:00',
+            Titulo: 'dormir em casa',
+          });
+      });
+  
+      after(() => {
+        sinon.restore();
+      });
+  
+      it('Deve ler a tarefa especifica', async () => {
+        expect(response).to.have.status(200);    
+      });
+    })
+
+    describe('Caso de falha, passando um id que não existe', () => {
+      before(async () => {
+        response = await chai.request(app)
+          .get('/agenda/100000')        
+        sinon
+          .stub(todosController, 'update')
+          .rejects();
+      });
+  
+      after(() => {
+        sinon.restore();
+      });
+
+      it('Deve retornar um erro', async () => {
+        expect(response).to.have.status(404);  
+        expect(response.body).to.be.an('object');
+        expect(response.body).to.have.property('error');
+      })
+    });
+  })
+  
 })
