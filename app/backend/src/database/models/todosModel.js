@@ -6,8 +6,7 @@ module.exports = (sequelize, DataTypes) =>{
     },
     Data: {
       allowNull: false,
-      defaultValue: DataTypes.NOW,
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
     },
     Titulo: {
       allowNull: false,
@@ -16,7 +15,7 @@ module.exports = (sequelize, DataTypes) =>{
   }, {
     tableName: 'todos',
     timestamps: false,
-  })
+    })
 
   return Todos;
 }

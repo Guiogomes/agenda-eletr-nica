@@ -20,7 +20,8 @@ de dados relacional.
 
 - Para instalar as dependências entre nas respectivas pastas de back-end ou front-end e rode o comando: *npm install*
 
-- Para visualizar o projeto localmente inicie a aplicação através do comando *npm start*
+- Para visualizar o projeto localmente inicie o front-end da aplicação através do comando *npm start*\
+e o back-end através do comando *npm run dev*
 
 - Para criar e popular o banco utilize o comando *npm run db:reset*
 

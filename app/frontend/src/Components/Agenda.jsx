@@ -1,16 +1,44 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
+import { MyContext } from '../context/Provider';
 import { readTasks } from '../utils/Request';
 
-const Agenda = () => {
-  const [todos, setTodos] = useState([]);
 
+const Agenda = () => {
+  const {
+    setId,
+    updateToDo,
+    deleteToDo,
+    setNome,
+    setData,
+    setHora,
+    setTitulo,
+    toDos,
+    setToDos,
+  } = useContext(MyContext);
+  
   useEffect(() => {
     const fetchToDos = async () => {
       const agenda = await readTasks();
-      setTodos(agenda);
+      setToDos(agenda);
     }
     fetchToDos();
-  }, []);
+  }, [setToDos]);
+
+  const handleEditClick = (todo, hora) => {
+    const time = new Date(todo.Data);
+    // const usdate = `${time
+    //   .getFullYear()}-${time.getMonth().toString().padStart(2,'0')}-${time.getDay().toString().padStart(2,'0')}`;
+    setId(todo.id);
+    setNome(todo.Nome);
+    setData(todo.Data.slice(0,10));
+    setHora(hora);
+    setTitulo(todo.Titulo);
+    updateToDo();
+  }
+
+  const handleDeleteClick = (id) => {
+    deleteToDo(id);
+  }
 
   return(
     <table>
@@ -25,23 +53,32 @@ const Agenda = () => {
         </tr>
       </thead>
       <tbody>
-        {todos.map((todo) => {
+        {toDos.map((toDo) => {
           // Para implementar: função que monta data
-          const time = new Date(todo.Data);          
-          const data = `${time.getDay().toString().padStart(2,'0')}
-            /${time.getMonth().toString().padStart(2,'0')}/${time.getFullYear()}`;
+          const time = new Date(toDo.Data);
+          console.log(toDo.Data)
+          const data = `${time
+            .getFullYear()}-${time.getMonth().toString().padStart(2,'0')}-${time.getDay().toString().padStart(2,'0')}`;
           const hora = `${time.getHours()}:${time.getMinutes().toString().padStart(2,'0')}`;
           return (
-            <tr key={todo.id}>
-              <td>{todo.Nome}</td>
-              <td>{data}</td>
+            <tr key={toDo.id}>
+              <td>{toDo.Nome}</td>
+              <td>{toDo.Data.slice(0,10)}</td>
               <td>{hora}</td>
-              <td>{todo.Título}</td>
+              <td>{toDo.Titulo}</td>
               <td>
-                <button>Editar</button>
+                <button
+                  onClick={() => handleEditClick(toDo, hora) }
+                >
+                  Editar
+                </button>
               </td>
               <td>
-                <button>Excluir</button>
+                <button
+                onClick={() => handleDeleteClick(toDo.id)}
+                >
+                  Excluir
+                </button>
               </td>
             </tr>
           )          
