@@ -12,7 +12,7 @@ const EditedForm = () => {
     setHora,
     Titulo,
     setTitulo,
-    setToDo,
+    editToDo,
     setHidden,
     setIsEdited,
   } = useContext(MyContext);
@@ -43,7 +43,7 @@ const EditedForm = () => {
         Hora:
         <input
           name={ Hora }
-          type='hour'
+          type='text'
           placeholder='Horário previsto (HH:MM)'
           onChange={(e) => setHora(e.target.value)}
           value={ Hora }
@@ -62,7 +62,7 @@ const EditedForm = () => {
       </label>
       <button
         type='button'
-        onClick={() => {setToDo(); setHidden(true); setIsEdited(false);}}
+        onClick={() => {editToDo(); setHidden(true); setIsEdited(false);}}
       >
         Salvar
       </button>
