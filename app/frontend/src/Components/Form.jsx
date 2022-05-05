@@ -1,22 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { createTask } from '../utils/Request';
+import React, { useContext } from 'react';
+import { MyContext } from '../context/Provider';
+
 
 const Form = () => {
-  const [Nome, setNome] = useState('');
-  const [Data, setData] = useState('');
-  const [Hora, setHora] = useState('');
-  const [Titulo, setTitulo] = useState('');
-
-  useEffect(() => {
-    
-  }, [Nome, Data, Hora, Titulo]);
-
-  const setToDo = async () => {
-    const newToDo = await createTask({ Nome, Data, Titulo });
-    return newToDo;
-  }
-
-  setToDo();
+  const {
+    Nome,
+    setNome,
+    Data,
+    setData,
+    Hora,
+    setHora,
+    Titulo,
+    setTitulo,
+    setToDo,
+  } = useContext(MyContext);
 
   return(
     <form>
