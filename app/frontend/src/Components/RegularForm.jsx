@@ -13,6 +13,7 @@ const RegularForm = () => {
     Titulo,
     setTitulo,
     setToDo,
+    disabled,
   } = useContext(MyContext);
 
   return(
@@ -60,6 +61,7 @@ const RegularForm = () => {
       </label>
       <button
         type='button'
+        disabled = { disabled }
         onClick={() => setToDo()}
       >
         Criar

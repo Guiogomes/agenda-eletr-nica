@@ -14,6 +14,7 @@ const Agenda = () => {
     setTitulo,
     toDos,
     setToDos,
+    setDisabled,
   } = useContext(MyContext);
   
   useEffect(() => {
@@ -31,10 +32,12 @@ const Agenda = () => {
     setHora(hora);
     setTitulo(todo.Titulo);
     updateToDo();
+    setDisabled(true);
   }
 
   const handleDeleteClick = (id) => {
     deleteToDo(id);
+    setDisabled(true);
   }
 
   return(

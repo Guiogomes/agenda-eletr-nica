@@ -15,6 +15,7 @@ const EditedForm = () => {
     editToDo,
     setHidden,
     setIsEdited,
+    setDisabled,
   } = useContext(MyContext);
 
   return(
@@ -62,7 +63,7 @@ const EditedForm = () => {
       </label>
       <button
         type='button'
-        onClick={() => {editToDo(); setHidden(true); setIsEdited(false);}}
+        onClick={() => {editToDo(); setHidden(true); setIsEdited(false); setDisabled(true);}}
       >
         Salvar
       </button>
