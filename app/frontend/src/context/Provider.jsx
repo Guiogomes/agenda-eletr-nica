@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { createContext, useState } from 'react';
-import { createTask, deleteTask } from '../utils/Request';
+import { createTask, deleteTask, editTask } from '../utils/Request';
 
 export const MyContext = createContext();
 
@@ -12,6 +12,7 @@ export function Provider({ children }) {
   const [hidden, setHidden] = useState(true);
   const [id, setId] = useState(1);
   const [isEdited, setIsEdited] = useState(false);
+  const [toDos, setToDos] = useState([]);
 
   const setToDo = async () => {
     const newToDo = await createTask({ Nome, Data: new Date(`${Data} ${Hora}`), Titulo });
@@ -19,7 +20,8 @@ export function Provider({ children }) {
     setData('');
     setHora('');
     setTitulo('');
-    return newToDo;
+    setHidden(true);
+    setToDos([...toDos, newToDo]);
   }
 
   const updateToDo = async () => {
@@ -32,7 +34,31 @@ export function Provider({ children }) {
     return deletedToDo;
   }
 
+  const editToDo = async () => {
+    console.log(id)
+    console.log(Data)
+    const editedToDoIndex = toDos.findIndex(todo => todo.id === id);
+    const newAgenda = [...toDos];
+    newAgenda[editedToDoIndex] = {
+      ...newAgenda[editedToDoIndex],
+      Nome,
+      Data: new Date(`${Data} ${Hora}`),
+      Titulo,
+    }
+    const editedToDo = await editTask(id, newAgenda[editedToDoIndex]);
+    setNome('');
+    setData('');
+    setHora('');
+    setTitulo('');
+    setHidden(true);
+    console.log(editedToDo)
+    console.log(newAgenda)
+    setToDos(newAgenda);
+  }
+
   const context = {
+    toDos,
+    setToDos,
     Nome,
     setNome,
     Data,
@@ -49,6 +75,7 @@ export function Provider({ children }) {
     deleteToDo,
     isEdited,
     setIsEdited,
+    editToDo,
   };
 
   return (
