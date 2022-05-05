@@ -41,7 +41,7 @@ const RegularForm = () => {
         Hora:
         <input
           name={ Hora }
-          type='hour'
+          type='text'
           placeholder='Horário previsto'
           onChange={(e) => setHora(e.target.value)}
           value={ Hora }
