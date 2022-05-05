@@ -12,6 +12,7 @@ const read = async () => {
 
 const readOne = async (id) => {
   const todo = await Todos.findByPk(id);
+  if (!todo) throw new Error('Todo not found');
   return todo;
 };
 
