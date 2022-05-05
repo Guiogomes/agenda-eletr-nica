@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { MyContext } from '../context/Provider';
+import '../css/FillButton.css';
 
 const FillAgenda = () => {
   const { setHidden } = useContext(MyContext);
@@ -9,8 +10,13 @@ const FillAgenda = () => {
   }
 
   return (
-    <div>
-      <button onClick={handleClick}>Preencher agenda</button>
+    <div className='fill-button-container'>
+      <button
+        className='button'
+        onClick={handleClick}
+      >
+        Preencher agenda
+      </button>
     </div>
   )
 }

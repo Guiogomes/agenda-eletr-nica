@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { MyContext } from '../context/Provider';
-
+import '../css/Forms.css';
 
 const RegularForm = () => {
   const {
@@ -16,7 +16,7 @@ const RegularForm = () => {
   } = useContext(MyContext);
 
   return(
-    <form>
+    <form className='form-container'>
       <label>
         Nome:
         <input

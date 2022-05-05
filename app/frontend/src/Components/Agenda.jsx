@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { MyContext } from '../context/Provider';
 import { readTasks } from '../utils/Request';
-
+import '../css/Agenda.css';
 
 const Agenda = () => {
   const {
@@ -38,7 +38,7 @@ const Agenda = () => {
   }
 
   return(
-    <table>
+    <table className='table-container'>
       <thead>
         <tr>
           <th>Nome</th>
