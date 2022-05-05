@@ -9,10 +9,6 @@ module.exports = (sequelize, DataTypes) =>{
       defaultValue: DataTypes.NOW,
       type: DataTypes.DATEONLY,
     },
-    Hora: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.DATE,
-    },
     Titulo: {
       allowNull: false,
       type: DataTypes.STRING({ length: 100 }),
