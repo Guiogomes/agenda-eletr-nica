@@ -26,19 +26,18 @@ const Agenda = () => {
 
   const handleEditClick = (todo, hora) => {
     const time = new Date(todo.Data);
-    const usdate = `${time.getDay().toString().padStart(2,'0')}-${time.getMonth().toString().padStart(2,'0')}-${time
-      .getFullYear()}`
+    // const usdate = `${time
+    //   .getFullYear()}-${time.getMonth().toString().padStart(2,'0')}-${time.getDay().toString().padStart(2,'0')}`;
     setId(todo.id);
     setNome(todo.Nome);
-    setData(usdate);
+    setData(todo.Data.slice(0,10));
     setHora(hora);
     setTitulo(todo.Titulo);
     updateToDo();
   }
 
   const handleDeleteClick = (id) => {
-    setId(id)
-    deleteToDo();
+    deleteToDo(id);
   }
 
   return(
@@ -56,14 +55,15 @@ const Agenda = () => {
       <tbody>
         {toDos.map((toDo) => {
           // Para implementar: função que monta data
-          const time = new Date(toDo.Data);          
-          const data = `${time.getDay().toString().padStart(2,'0')}-${time.getMonth().toString().padStart(2,'0')}-${time
-            .getFullYear()}`;
+          const time = new Date(toDo.Data);
+          console.log(toDo.Data)
+          const data = `${time
+            .getFullYear()}-${time.getMonth().toString().padStart(2,'0')}-${time.getDay().toString().padStart(2,'0')}`;
           const hora = `${time.getHours()}:${time.getMinutes().toString().padStart(2,'0')}`;
           return (
             <tr key={toDo.id}>
               <td>{toDo.Nome}</td>
-              <td>{data}</td>
+              <td>{toDo.Data.slice(0,10)}</td>
               <td>{hora}</td>
               <td>{toDo.Titulo}</td>
               <td>

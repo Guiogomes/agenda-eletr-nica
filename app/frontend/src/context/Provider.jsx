@@ -29,30 +29,28 @@ export function Provider({ children }) {
     setIsEdited(true);
   }
 
-  const deleteToDo = async () => {
-    const deletedToDo = await deleteTask(id);
-    return deletedToDo;
+  const deleteToDo = async (id) => {
+    const leftToDos = toDos.filter(toDo => toDo.id !== id);
+    await deleteTask(id);
+    setToDos(leftToDos);
   }
 
   const editToDo = async () => {
-    console.log(id)
-    console.log(Data)
     const editedToDoIndex = toDos.findIndex(todo => todo.id === id);
     const newAgenda = [...toDos];
     newAgenda[editedToDoIndex] = {
       ...newAgenda[editedToDoIndex],
       Nome,
-      Data: new Date(`${Data} ${Hora}`),
       Titulo,
+      Data: `${Data} ${Hora}`,
     }
-    const editedToDo = await editTask(id, newAgenda[editedToDoIndex]);
+    console.log(newAgenda[editedToDoIndex])
+    await editTask(id, newAgenda[editedToDoIndex]);
     setNome('');
     setData('');
     setHora('');
     setTitulo('');
     setHidden(true);
-    console.log(editedToDo)
-    console.log(newAgenda)
     setToDos(newAgenda);
   }
 
