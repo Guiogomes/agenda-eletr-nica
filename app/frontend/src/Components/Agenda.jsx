@@ -25,9 +25,6 @@ const Agenda = () => {
   }, [setToDos]);
 
   const handleEditClick = (todo, hora) => {
-    const time = new Date(todo.Data);
-    // const usdate = `${time
-    //   .getFullYear()}-${time.getMonth().toString().padStart(2,'0')}-${time.getDay().toString().padStart(2,'0')}`;
     setId(todo.id);
     setNome(todo.Nome);
     setData(todo.Data.slice(0,10));
@@ -57,8 +54,6 @@ const Agenda = () => {
           // Para implementar: função que monta data
           const time = new Date(toDo.Data);
           console.log(toDo.Data)
-          const data = `${time
-            .getFullYear()}-${time.getMonth().toString().padStart(2,'0')}-${time.getDay().toString().padStart(2,'0')}`;
           const hora = `${time.getHours()}:${time.getMinutes().toString().padStart(2,'0')}`;
           return (
             <tr key={toDo.id}>
