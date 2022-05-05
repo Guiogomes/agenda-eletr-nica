@@ -15,10 +15,6 @@ module.exports = {
       },
       Data: {
         allowNull: false,
-        type: Sequelize.DATEONLY,
-      },
-      Hora: {
-        defaultValue: Sequelize.fn('NOW'),
         type: Sequelize.DATE,
       },
       Titulo: {
