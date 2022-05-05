@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { MyContext } from '../context/Provider';
 import { readTasks } from '../utils/Request';
 
 
 const Agenda = () => {
+  const { setId, updateToDo, deleteToDo } = useContext(MyContext);
   const [toDos, setToDos] = useState([]);
+  
   useEffect(() => {
     const fetchToDos = async () => {
       const agenda = await readTasks();
@@ -11,6 +14,16 @@ const Agenda = () => {
     }
     fetchToDos();
   }, []);
+
+  const handleEditClick = (id) => {
+    setId(id)
+    updateToDo();
+  }
+
+  const handleDeleteClick = (id) => {
+    setId(id)
+    deleteToDo();
+  }
 
   return(
     <table>
@@ -38,10 +51,18 @@ const Agenda = () => {
               <td>{hora}</td>
               <td>{toDo.Título}</td>
               <td>
-                <button>Editar</button>
+                <button
+                  onClick={() => handleEditClick(toDo.id)}
+                >
+                  Editar
+                </button>
               </td>
               <td>
-                <button>Excluir</button>
+                <button
+                onClick={() => handleDeleteClick(toDo.id)}
+                >
+                  Excluir
+                </button>
               </td>
             </tr>
           )          
