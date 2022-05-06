@@ -12,7 +12,7 @@
     "install-backend": "cd backend && npm install",
     "heroku-postbuild": "npm run install-frontend && npm run build  && npm run install-backend ",
     "start-db": "cd backend && npm run db:reset",
-    "start-application-back-end": "cd backend && npm run start-db && npm run dev",
+    "start-application-back-end": "npm run start-db && cd backend && npm run dev",
     "start-application-front-end": "cd frontend && npm start",
     "start": "npm run install-backend && npm run start-db && npm run install-frontend && npm run start-application-back-end && npm run start-application-front-end"
   },
