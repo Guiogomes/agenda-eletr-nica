@@ -11,6 +11,6 @@
     "start": "cd backend && npm run dev"
   },
   "keywords": [],
-  "author": "",
+  "author": "Guilherme Gomes da Silva",
   "license": "ISC"
 }
