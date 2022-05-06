@@ -22,7 +22,7 @@ module.exports = {
   production: {
     username: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
-    database: 'agenda_eletronica',
+    database: process.env.MYSQL_DB_NAME,
     port: process.env.MYSQL_PORT,
     host: process.env.MYSQL_HOST,
     dialect: 'mysql',
