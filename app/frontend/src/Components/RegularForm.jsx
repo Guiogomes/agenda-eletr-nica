@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { MyContext } from '../context/Provider';
-
+import '../css/Forms.css';
 
 const RegularForm = () => {
   const {
@@ -13,10 +13,11 @@ const RegularForm = () => {
     Titulo,
     setTitulo,
     setToDo,
+    disabled,
   } = useContext(MyContext);
 
   return(
-    <form>
+    <form className='form-container'>
       <label>
         Nome:
         <input
@@ -60,6 +61,10 @@ const RegularForm = () => {
       </label>
       <button
         type='button'
+        disabled = { disabled }
+        style={{
+          backgroundColor: disabled ? '#A42C2C' : '#4CAF50',
+        }}
         onClick={() => setToDo()}
       >
         Criar

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { MyContext } from '../context/Provider';
 import { readTasks } from '../utils/Request';
-
+import '../css/Agenda.css';
 
 const Agenda = () => {
   const {
@@ -14,6 +14,7 @@ const Agenda = () => {
     setTitulo,
     toDos,
     setToDos,
+    setDisabled,
   } = useContext(MyContext);
   
   useEffect(() => {
@@ -31,14 +32,16 @@ const Agenda = () => {
     setHora(hora);
     setTitulo(todo.Titulo);
     updateToDo();
+    setDisabled(true);
   }
 
   const handleDeleteClick = (id) => {
     deleteToDo(id);
+    setDisabled(true);
   }
 
   return(
-    <table>
+    <table className='table-container'>
       <thead>
         <tr>
           <th>Nome</th>

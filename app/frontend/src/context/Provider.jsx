@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { createContext, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { createTask, deleteTask, editTask } from '../utils/Request';
 
 export const MyContext = createContext();
@@ -13,6 +13,13 @@ export function Provider({ children }) {
   const [id, setId] = useState(1);
   const [isEdited, setIsEdited] = useState(false);
   const [toDos, setToDos] = useState([]);
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    if (Nome.length !== 0 && Data.length !== 0 && Hora.length !== 0 && Titulo.length !== 0) {
+      setDisabled(false);
+    }
+  }, [Nome, Data, Hora, Titulo]);
 
   const setToDo = async () => {
     const newToDo = await createTask({ Nome, Data: new Date(`${Data} ${Hora}`), Titulo });
@@ -74,6 +81,8 @@ export function Provider({ children }) {
     isEdited,
     setIsEdited,
     editToDo,
+    disabled,
+    setDisabled,
   };
 
   return (

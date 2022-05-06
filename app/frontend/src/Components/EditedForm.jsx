@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { MyContext } from '../context/Provider';
-
+import '../css/Forms.css';
 
 const EditedForm = () => {
   const {
@@ -15,11 +15,12 @@ const EditedForm = () => {
     editToDo,
     setHidden,
     setIsEdited,
+    setDisabled,
   } = useContext(MyContext);
 
   return(
-    <form>
-      <label>
+    <form className='form-container'>
+      <label htmlFor={ Nome }>
         Nome:
         <input
           name={ Nome }
@@ -29,7 +30,7 @@ const EditedForm = () => {
           value={ Nome }
         />
       </label>
-      <label>
+      <label htmlFor={ Data }>
         Data:
         <input
           name={ Data }
@@ -39,7 +40,7 @@ const EditedForm = () => {
           value={ Data }
         />
       </label>
-      <label>
+      <label htmlFor={ Hora }>
         Hora:
         <input
           name={ Hora }
@@ -49,7 +50,7 @@ const EditedForm = () => {
           value={ Hora }
         />
       </label>
-      <label>
+      <label htmlFor={ Titulo }>
         Titulo:
         <textarea
           name={ Titulo }
@@ -62,7 +63,7 @@ const EditedForm = () => {
       </label>
       <button
         type='button'
-        onClick={() => {editToDo(); setHidden(true); setIsEdited(false);}}
+        onClick={() => {editToDo(); setHidden(true); setIsEdited(false); setDisabled(true);}}
       >
         Salvar
       </button>
