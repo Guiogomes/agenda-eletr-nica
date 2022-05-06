@@ -4,7 +4,7 @@
   "description": "Projeto criado para prova prática da empresa IK Solutions",
   "main": "index.js",
   "engines": {
-    "node": ">=14.0.0"
+    "node": "^14.0.0"
   },
   "scripts": {
     "build": "cd frontend && npm install && npm run build",
