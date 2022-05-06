@@ -1,7 +1,7 @@
 
   
 require('dotenv').config();
-
+mysql://b4b66456060dd4:de844b40@us-cdbr-east-05.cleardb.net/heroku_4ed1c3d923af282?reconnect=true
 module.exports = {
   development: {
     username: process.env.MYSQL_USER,
