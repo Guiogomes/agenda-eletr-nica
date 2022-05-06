@@ -41,11 +41,13 @@ git clone git@github.com:Guiogomes/agenda-eletronica.git && cd agenda-eletronica
 ## Instalando Dependências
 
 Front-end:
-```cd front-end/ && npm install
+```bash
+cd front-end/ && npm install
 ``` 
 
 Back-end:
-```cd back-end/ && npm install
+```bash
+cd back-end/ && npm install
 ``` 
 
 <br>
@@ -56,18 +58,16 @@ Back-end:
 
   - O comando instalara as dependências de front-end e back-end:
 
-  ```npm run start``` 
+  **npm run start** 
 
   - separando em dois terminais faça os comando a seguir para rodar localmente a aplicação:
     - Iniciar o back-end:
 
-      ```npm run start-application-back-end
-      ```
+      **npm run start-application-back-end**
     
     - Iniciar o front-end:
 
-      ```npm run start-application-front-end
-      ```
+      **npm run start-application-front-end**
 <br>
 
 
@@ -79,11 +79,9 @@ Back-end:
 
   É nescessario que a porta 3001 esteja livre para rodar o test do back-end, então o npm start não pode estar ativos. 
   
-  ```cd backend/ && npm test
-  ```
+  **cd backend/ && npm test**
 
   Para conferir a cobertura de testes:
 
-  ```cd backend && npm run test:coverage
-  ```
+  **cd backend && npm run test:coverage**
   
