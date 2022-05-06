@@ -1,12 +1,22 @@
-# Agenda Eletrônica
+# # Contexto
+Teste Técnico da IK Solution. Foi desenvolvido um CRUD/Agenda eletrônica, onde é possivel adicionar, remover, editar e deletar.
 
-## O que é proposto
+## Técnologias usadas
 
-Desenvolver uma agenda eletrônica que permita um CRUD - create, read, update e delete - \
-de tarefas, tendo o front-end em React, o back-end em Node.js e a utilização de um banco \
-de dados relacional.
+Front-end:
+  - JavaScript
+  - React.js
 
-## Requisitos
+Back-end:
+  - JavaScript
+  - Node.js(MSC)
+  - Express
+  - MySql(ORM - Sequelize)
+  - Tests(Mocha, Sinon, Chai)
+
+<br>
+
+## Requisitos pedidos
 
 [ ] - Acessar tela com relação de compromissos contendo os campos: Nome, Data, Hora e Título da atividade;
 
@@ -16,20 +26,63 @@ de dados relacional.
 
 [ ] - Criar tela de exclusão da tarefa;
 
-## Iniciando o projeto
+<br>
 
-- Para instalar as dependências entre nas respectivas pastas de back-end ou front-end e rode o comando: *npm install*
+## Clonando o projeto
 
-- Para visualizar o projeto localmente inicie o front-end da aplicação através do comando *npm start*\
-e o back-end através do comando *npm run dev*
+Copie e cole em seu terminal:
 
-- Para criar e popular o banco utilize o comando *npm run db:reset*
+```
+git clone git@github.com:Guiogomes/agenda-eletronica.git && cd agenda-eletronica/app
+```
 
-- Para acessar a aplicação no Heroku utilize o link: XXXXX
+<br>
 
-## Rodar os testes
+## Instalando Dependências
+  - Essa parte não é nescessaria se for rodar com docker!
 
-### Back-end
+Front-end:
+```bash
+cd front-end/ && npm install
+``` 
 
-- no back-end foi desenvolvido os testes de integração,\
-sendo possível rodar e ver a cobertura através do comando *npm run test:coverage*
+Back-end:
+```bash
+cd back-end/ && npm install
+``` 
+
+<br>
+
+## Executando aplicação
+### Obs: executar os comandos a partir da raiz do projeto (pasta app)
+### Obs 2: por favor, siga a ordem proposta, para não ter possíveis erros de execução da aplicação.
+
+  - O comando instalara as dependências de front-end e back-end:
+
+  **npm run start** 
+
+  - separando em dois terminais faça os comando a seguir para rodar localmente a aplicação:
+    - Iniciar o back-end:
+
+      **npm run start-application-back-end**
+    
+    - Iniciar o front-end:
+
+      **npm run start-application-front-end**
+<br>
+
+
+## Executando Testes
+
+* Para rodar todos os testes:
+
+ - Back-end:
+
+  É nescessario que a porta 3001 esteja livre para rodar o test do back-end, então o npm start não pode estar ativos. 
+  
+  **cd backend/ && npm test**
+
+  Para conferir a cobertura de testes:
+
+  **cd backend && npm run test:coverage**
+  
