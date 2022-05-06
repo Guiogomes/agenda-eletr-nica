@@ -27,5 +27,11 @@ module.exports = {
     port: process.env.MYSQL_PORT,
     host: process.env.MYSQL_HOST,
     dialect: 'postgres',
+    dialectOptions: {
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
+    }
   },
 };
