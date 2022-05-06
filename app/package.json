@@ -1,0 +1,16 @@
+{
+  "name": "agenda-eletronica",
+  "version": "1.0.0",
+  "description": "Projeto criado para prova prática da empresa IK Solutions",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "install-frontend": "cd frontend && npm install",
+    "install-backend": "cd backend && npm install",
+    "heroku-postbuild": "npm run install-frontend && npm run build && npm run install-backend",
+    "start": "cd backend && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
