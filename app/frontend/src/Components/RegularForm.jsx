@@ -62,6 +62,9 @@ const RegularForm = () => {
       <button
         type='button'
         disabled = { disabled }
+        style={{
+          backgroundColor: disabled ? '#A42C2C' : '#4CAF50',
+        }}
         onClick={() => setToDo()}
       >
         Criar
