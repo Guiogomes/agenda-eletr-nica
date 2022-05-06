@@ -15,7 +15,7 @@ app.get("/api", (req, res) => {
 
 // Todas as outras solicitações GET não tratadas retornarão nosso app em React
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+  res.sendFile(path.resolve(__dirname, '../frontend/build', 'index.html'));
 });
 app.use(router);
 if (process.env.NODE_ENV === 'production') {
