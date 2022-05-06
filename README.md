@@ -39,7 +39,6 @@ git clone git@github.com:Guiogomes/agenda-eletronica.git && cd agenda-eletronica
 <br>
 
 ## Instalando Dependências
-  - Essa parte não é nescessaria se for rodar com docker!
 
 Front-end:
 ```bash
