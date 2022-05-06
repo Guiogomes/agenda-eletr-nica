@@ -23,10 +23,10 @@ module.exports = {
     use_env_variable: 'DATABASE_URL',
     username: process.env.MYSQL_USER,
     password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DB_NAME,
+    database: 'agenda_eletronica',
     port: process.env.MYSQL_PORT,
     host: process.env.MYSQL_HOST,
-    dialect: 'postgres',
+    dialect: 'postgressql',
     dialectOptions: {
       "ssl": {
         "require": true,
