@@ -61,7 +61,7 @@ Back-end:
   - separando em dois terminais faça os comando a seguir para rodar localmente a aplicação:
     - Iniciar o back-end:
 
-      ```        npm run start-application-back-end
+      ```npm run start-application-back-end
       ```
     
     - Iniciar o front-end:
