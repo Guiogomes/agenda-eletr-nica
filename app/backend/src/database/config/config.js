@@ -26,7 +26,7 @@ module.exports = {
     database: 'agenda_eletronica',
     port: process.env.MYSQL_PORT,
     host: process.env.MYSQL_HOST,
-    dialect: 'postgressql',
+    dialect: 'postgres',
     dialectOptions: {
       "ssl": {
         "require": true,
