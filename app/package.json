@@ -14,7 +14,7 @@
     "start-db": "cd backend && npm run db:reset",
     "start-application-back-end": "npm run start-db && cd backend && npm run dev",
     "start-application-front-end": "cd frontend && npm start",
-    "start": "npm run install-backend && npm run start-db && npm run install-frontend && heroku-postbuild"
+    "start": "npm run install-backend && npm run start-db && npm run install-frontend && npm run heroku-postbuild"
   },
   "keywords": [],
   "author": "Guilherme Gomes da Silva",
